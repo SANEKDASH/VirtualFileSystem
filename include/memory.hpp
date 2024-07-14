@@ -11,7 +11,7 @@ class Memory {
     char* arr_ptr   = nullptr;
     char* data      = nullptr;
 public:
-    Memory();
+    Memory();       // сделать конструктор от аргументов
     ~Memory();
 };
 #endif
