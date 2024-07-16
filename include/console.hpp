@@ -1,24 +1,31 @@
 #ifndef CONSOLE_HEADER
 #define CONSOLE_HEADER
 
-#include <string>
+#include <iostream>
+#include <fstream>
 
 typedef enum
 {
     kListDirectory,
     kPrintFileData,
+    kUnknownCommand,
 } Commands_t;
 
 class Console
 {
     private:
-        std::string cur_comand;
+
+        std::string cur_command;
 
     public:
-        Commands_t GetCommand(FILE *input_file);
 
         Console();
+
+        Commands_t GetCommand();
+
+        void PrintCommand();
+
         ~Console();
-}
+};
 
 #endif

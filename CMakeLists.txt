@@ -3,7 +3,7 @@ project(VirtualFileSystem)
 
 set(CMAKE_CXX_STANDARD 17)
 
-set(MY_COMPILE_FLAGS "-Wall -Wextra -Wpedantic -Werror")
+set(MY_COMPILE_FLAGS "-Wall -Wextra -Wpedantic ")
 set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} ${MY_COMPILE_FLAGS})
 
 set(INCLUDE_DIR ${CMAKE_SOURCE_DIR}/include)
@@ -11,4 +11,8 @@ set(SRC_DIR ${CMAKE_SOURCE_DIR}/src)
 
 include_directories(${INCLUDE_DIR})
 
-add_executable(vf_system ${SRC_DIR}/main.cpp ${SRC_DIR}/tree.cpp ${SRC_DIR}/data.cpp)
+add_executable(vf_system ${SRC_DIR}/main.cpp
+                         ${SRC_DIR}/console.cpp
+                         ${SRC_DIR}/virtual_file_system.cpp
+                         ${SRC_DIR}/command_handler.cpp)
+
