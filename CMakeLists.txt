@@ -11,4 +11,4 @@ set(SRC_DIR ${CMAKE_SOURCE_DIR}/src)
 
 include_directories(${INCLUDE_DIR})
 
-add_executable(vf_system ${SRC_DIR}/main.cpp ${SRC_DIR}/memory.cpp ${SRC_DIR}/file.cpp ${SRC_DIR}/dir.cpp)
+add_executable(vf_system ${SRC_DIR}/main.cpp ${SRC_DIR}/tree.cpp ${SRC_DIR}/data.cpp)
