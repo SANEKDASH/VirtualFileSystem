@@ -15,3 +15,4 @@ add_executable(vf_system ${SRC_DIR}/main.cpp
                          ${SRC_DIR}/console.cpp
                          ${SRC_DIR}/virtual_file_system.cpp
                          ${SRC_DIR}/command_handler.cpp)
+
