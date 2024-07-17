@@ -23,7 +23,8 @@ int main() {
 
     cur_ptr = cur_ptr->cd_back();
     cur_ptr->print_node();
-    
+
     cur_ptr = cur_ptr->cd_front(1)->cd_front(0);
     cur_ptr->print_node();
 }
+

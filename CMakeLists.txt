@@ -12,6 +12,11 @@ set(SRC_DIR ${CMAKE_SOURCE_DIR}/src)
 include_directories(${INCLUDE_DIR})
 
 add_executable(vf_system ${SRC_DIR}/main.cpp
-                         ${SRC_DIR}/data.cpp
-                         ${SRC_DIR}/tree.cpp)
+
+                         ${SRC_DIR}/console.cpp
+                         ${SRC_DIR}/virtual_file_system.cpp
+                         ${SRC_DIR}/command_handler.cpp
+                         ${SRC_DIR}/tree.cpp
+                         ${SRC_DIR}/data.cpp)
+
 

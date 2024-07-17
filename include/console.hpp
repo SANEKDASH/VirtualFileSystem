@@ -4,24 +4,23 @@
 #include <iostream>
 #include <fstream>
 
-typedef enum
-{
-    kListDirectory,
-    kPrintFileData,
-    kUnknownCommand,
-} Commands_t;
+#include "commands.hpp"
 
 class Console
 {
     private:
-
+// smells like dog shit
         std::string cur_command;
+
+        CommandCodes_t cur_command_code;
 
     public:
 
         Console();
+        Console(char *command);
 
-        Commands_t GetCommand();
+        CommandCodes_t GetCommand();
+        CommandCodes_t GetCurrentCommandCode();
 
         void PrintCommand();
 
