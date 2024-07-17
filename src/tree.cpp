@@ -29,6 +29,7 @@ Tree* Tree::add_node(const std::string name, int type){
     children.push_back(nullptr);
     children[count_children] = new Tree(name);
     children[count_children]->type = type;
+    children[count_children]->parent = this;
     ++count_children;
 
     return children[count_children - 1];
@@ -43,10 +44,18 @@ bool Tree::has_children() const {
 }
 
 void Tree::print_node() const {
+    std::cout << std::endl;
+
     std::cout << "NAME:" << data->get_name() << std::endl;
     std::cout << "TYPE:" << type << std::endl;
+
+    if (parent != nullptr)
+        std::cout << "PARENT:" << parent->data->get_name() << std::endl;
+
     std::cout << "TEXT:" << data->get_text() << std::endl;
     std::cout << "NUM_CHILDREN:" << count_children << std::endl;
+
+    std::cout << std::endl;
 }
 
 void Tree::write_file(const std::string& text) {
@@ -58,6 +67,50 @@ void Tree::write_file(const std::string& text) {
 }
 
 void Tree::cat_file() const {
+    std::cout << std::endl;
+
     std::cout << "NAME:" << data->get_name() << std::endl;
     std::cout << data->get_text() << std::endl;
+
+    std::cout << std::endl;
+}
+
+void Tree::add_text_in_file(const std::string& text) {
+    if (type == FILE_T) {
+        data->get_text() += text;
+    } else {
+        std::cout << "Error: can't write in the directory" << std::endl;
+    }
+}
+
+Tree* Tree::cd_front(int num_of_child) const {
+    if (num_of_child >= count_children || num_of_child < 0) {
+        std::cout << "Error: out of children" << std::endl;
+        return nullptr;
+    }
+
+    if (children[num_of_child]->type == FILE_T) {
+        std::cout << "Error: can't cd with file" << std::endl;
+        return nullptr;
+    }
+    
+    return children[num_of_child];
+
+
+}
+
+Tree* Tree::cd_back() const {
+    if (parent == nullptr) {
+        std::cout << "Error: you are in the root" << std::endl;
+    }
+
+    return parent;
+}
+
+void Tree::ls() const {
+    for (int i = 0; i < count_children; ++i) {
+        std::cout << children[i]->data->get_name() << " ";
+    }
+
+    std::cout << std::endl;
 }
